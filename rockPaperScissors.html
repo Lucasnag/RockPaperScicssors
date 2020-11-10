@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Piedra, papel o Tijera</h1>
+    <h2>El usuario elige</h2>
+    <h2 id="user">......</h2>
+    <div>
+        <img id="images1"></img>
+    </div>
+
+    <h2 > La compu elige</h2>
+    <h2 id="computer" > ......</h2>
+    <div>
+        <img id="images" ></img>
+    </div>
+    <h3 style="color: red;" id="quienGana"></h3>
+        
+
+    <button onclick=(location.reload()); >Refresh</button>
+    
+</body>
+<script>
+    //elecciones
+    var eleccionComputer = Math.floor(Math.random() * 3);
+    var eleccionUser = prompt('Presiona 0 para Piedra, 1 Papel, 2 Tijera ');
+    
+
+    function userEleccion (eleccionUser){
+        if (eleccionUser == 0 ){ return ('Piedra')}
+            else if(eleccionUser == 1 ){ return ('Papel')}
+                else if(eleccionUser == 2 ) {return('Tijera')}
+                   else if (eleccionUser != 0, 1, 2){
+                        (alert('error en eleccion'));
+                        null
+    }
+    };
+
+    function piedraPapelTijera(eleccionComputer){
+        if (eleccionComputer == 0){ 
+            return ('Piedra')}
+                else if (eleccionComputer == 1){
+                    return ('Papel')}
+                        else if (eleccionComputer == 2) {
+                            return('Tijera')
+            }   
+    };
+
+    function quienGana(eleccionUser, eleccionComputer){
+        if(eleccionUser == 0 && eleccionComputer == 2 ){ return ('Gana el Usuario')}
+            else if(eleccionUser == 0 && eleccionComputer == 0){ return ('Empate')}
+                else if(eleccionUser == 0 && eleccionComputer == 1){ return ('Gana la Computadora')}
+                    else if(eleccionUser == 2 && eleccionComputer == 2 ){ return ("Empate")}
+                        else if(eleccionUser == 2 && eleccionComputer == 1 ){ return ('Gana el Usuario')}
+                            else if(eleccionUser == 2 && eleccionComputer == 0){ return ("Gana la computadora")}
+                                else if(eleccionUser == 1 && eleccionComputer == 0){ return ('Gana el Usuario')}
+                                    else if(eleccionUser == 1 && eleccionComputer == 1){ return ("Empate")}
+                                        else if(eleccionUser == 1 && eleccionComputer == 2){ return ("Gana la computadora")}
+                                } null;
+    
+    function images (eleccionUser, eleccionComputer){
+        if (eleccionUser == 0 ){ return (rockImg())}
+            else if(eleccionUser == 1 ){return (paperImg())}
+                else if(eleccionUser == 2 ) {return(scissorsImg())}
+                    if (eleccionComputer == 0 ){ return (rockImg())}
+                        else if(eleccionComputer == 1 ){return (paperImg())}
+                            else if(eleccionComputer == 2 ) {return(scissorsImg())}
+                    };
+    
+    function rockImg() {
+    var rock = document.createElement("IMG");
+        rock.setAttribute("src", "rock.jpeg");
+        rock.setAttribute("width", "150");
+        rock.setAttribute("height", "150");
+        document.body.appendChild(rock);
+    };
+    function paperImg() {
+    var paper = document.createElement("IMG");
+        paper.setAttribute("src", "paper.png");
+        paper.setAttribute("width", "150");
+        paper.setAttribute("height", "150");
+        document.body.appendChild(paper);
+    };
+
+    function scissorsImg() {
+    var scissors = document.createElement("IMG");
+        scissors.setAttribute("src", "scissors.jpg");
+        scissors.setAttribute("width", "150");
+        scissors.setAttribute("height", "150");
+        document.body.appendChild(scissors);
+        };
+
+    document.getElementById('user').innerHTML = userEleccion(eleccionUser);
+    document.getElementById('computer').innerHTML = piedraPapelTijera(eleccionComputer);
+    document.getElementById('quienGana').innerHTML = quienGana(eleccionUser, eleccionComputer);
+    document.getElementById('images1').innerHTML = images(eleccionUser);
+    document.getElementById('images').innerHTML = images(eleccionComputer);
+
+</script>
+</html>
